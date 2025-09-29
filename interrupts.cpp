@@ -34,7 +34,20 @@ int main(int argc, char** argv) {
 
         /******************ADD YOUR SIMULATION CODE HERE*************************/
 
-
+        if (activity == "CPU"){
+            // 5 lines of code
+        }
+        else if(activity == "SYSCALL") {
+            // 5 lines of code
+        }
+        else if (activity == "END_IO") {
+            // 10 lines of code
+        }
+        else {
+            std::cerr << "Error: Unknown activity type: " << activity << std::endl;
+       
+        }        
+        
 
         /************************************************************************/
 
