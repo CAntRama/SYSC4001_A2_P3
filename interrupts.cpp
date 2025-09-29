@@ -1,11 +1,15 @@
 /**
  *
  * @file interrupts.cpp
- * @author Sasisekhar Govind
+ * @author Khadija Lahlou
+ * @author Casey 
  *
  */
 
 #include<interrupts.hpp>
+// if it fails #include "interrupts.hpp"
+
+// to run ./interrupts test /test/ <your_vector_table.txt> <your_device_table.txt>
 
 int main(int argc, char** argv) {
 
