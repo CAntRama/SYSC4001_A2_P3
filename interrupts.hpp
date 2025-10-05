@@ -28,6 +28,10 @@
  * @return a vector of strings (the parsed vector table)
  * 
  */
+ 
+ // Function name: parse_args
+ // Parameters: argc (int), argv (char**)
+ // Returns: a tuple of vectors: first vector is the vector table, second vector is the device delays
 std::tuple<std::vector<std::string>, std::vector<int>> parse_args(int argc, char** argv) {
     if(argc != 4) {
         std::cout << "ERROR!\nExpected 2 argument, received " << argc - 1 << std::endl;
@@ -71,6 +75,9 @@ std::tuple<std::vector<std::string>, std::vector<int>> parse_args(int argc, char
     return {vectors, delays};
 }
 
+// Function name: split_delim
+// Parameters: input (string), delim (string)
+// Returns: vector of strings
 // Following function was taken from stackoverflow; helper function for splitting strings
 std::vector<std::string> split_delim(std::string input, std::string delim) {
     std::vector<std::string> tokens;
@@ -86,6 +93,10 @@ std::vector<std::string> split_delim(std::string input, std::string delim) {
     return tokens;
 }
 
+// Function name: parse_trace
+// Parameters: trace (string)
+// Returns: tuple of string and int
+// Parses a single line of the trace file and returns the activity and duration/intr_num
 std::tuple<std::string, int> parse_trace(std::string trace) {
     //split line by ','
     auto parts = split_delim(trace, ",");
@@ -100,7 +111,10 @@ std::tuple<std::string, int> parse_trace(std::string trace) {
     return {activity, duration_intr};
 }
 
-//Default interrupt boilerplate
+// Function name: intr_boilerplate
+// Parameters: current_time (int), intr_num (int), context_save_time (int), vectors (vector<string>)
+// Returns: pair of string and int
+// Default interrupt boilerplate
 std::pair<std::string, int> intr_boilerplate(int current_time, int intr_num, int context_save_time, std::vector<std::string> vectors) {
 
     std::string execution = "";
@@ -125,7 +139,10 @@ std::pair<std::string, int> intr_boilerplate(int current_time, int intr_num, int
     return std::make_pair(execution, current_time);
 }
 
-
+// Function name: write_output
+// Parameters: execution (string)
+// Returns: void
+// Writes the execution string to execution.txt
 void write_output(std::string execution) {
     std::ofstream output_file("execution.txt");
 

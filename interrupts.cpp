@@ -1,8 +1,11 @@
 /**
  *
  * @file interrupts.cpp
- * @author Casey Ramanamapanoharana, Khadija Lahlou
- *
+ * 
+ * @author Khadija Lahlou
+ * @author Casey Ramanampanoharana
+ * @date 2024-10-03
+ * 
  */
 
 #include "interrupts.hpp"
@@ -11,6 +14,10 @@
 #define ISR_EXECUTION_TIME 40 // in ms
 #define IRET_EXECUTION_TIME 1 // in ms
 #define NOT_DEVICE -1
+
+// quick note: if you get an error here
+// if it fails #include "interrupts.hpp"
+// to run ./interrupts test /test/ <your_vector_table.txt> <your_device_table.txt>
 
 int main(int argc, char** argv) {
 
@@ -28,7 +35,9 @@ int main(int argc, char** argv) {
     int current_time = 0;
     int current_device = NOT_DEVICE;
 
+    // Capital variables are constants
 
+    
     /******************************************************************/
 
     //parse each line of the input trace file
