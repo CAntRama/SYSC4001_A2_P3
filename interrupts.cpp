@@ -41,6 +41,8 @@ int main(int argc, char** argv) {
             // Context:
                 //   CPU, 51 <-- We are here
                 //   SYSCALL, 14
+                //   CPU, 39
+                //   END_IO, 14
                 //
                 // This is the first CPU instruction --> Will be considered as a CPU Burst can be initialize_variable() or calculate(x) or delete (y,x)
                 execution += std::to_string(current_time) + ", " + std::to_string(duration_intr) + ", CPU Burst\n";
@@ -52,11 +54,13 @@ int main(int argc, char** argv) {
         else if (activity == "SYSCALL")
         {
             // Context: 
+            //   CPU, 51
             //   SYSCALL, 14 <-- We are here
             //   CPU, 39
             //   END_IO, 14
             //  
-            // Device delays --> Total from ISR, +40 every step, from example 2 ISR
+            // Device delays --> Total from ISR, +40 every step, from example execution file from github 2 ISR :
+            // transfer data from device to memory, check for errors
             current_device = duration_intr;
 
             auto [boilerplate_execution, new_current_time] = intr_boilerplate(current_time, current_device, CONTEXT_SAVE_EXECUTION_TIME, vectors);
@@ -70,8 +74,8 @@ int main(int argc, char** argv) {
             execution += std::to_string(current_time) + ", " + std::to_string(ISR_EXECUTION_TIME) + ", transfer data from device to memory\n";
             current_time += ISR_EXECUTION_TIME;
 
-            execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-80) + ", check for errors\n";
-            current_time += delays.at(current_device)-80;
+            execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-(2*ISR_EXECUTION_TIME)) + ", check for errors\n";
+            current_time += delays.at(current_device)-(2*ISR_EXECUTION_TIME);
 
             continue;
         }
@@ -83,7 +87,7 @@ int main(int argc, char** argv) {
             //   END_IO, 14 <-- We are here
             //
             // Added IRET to make it obvious in the excution that an interrupt was received to stop device I/O
-            // Device delays --> Total from ISR, +40 every step, from example 1 ISR
+            // Device delays --> Total from ISR, +40 every step, from example execution file from github 1 ISR : check device status
             current_device = duration_intr;
 
             execution += std::to_string(current_time) + ", " + std::to_string(IRET_EXECUTION_TIME) + ", IRET \n";
@@ -97,8 +101,8 @@ int main(int argc, char** argv) {
             execution += std::to_string(current_time) + ", " + std::to_string(ISR_EXECUTION_TIME) + ", end of I/O " + std::to_string(current_device) + ": run the ISR (device driver)\n";
             current_time += ISR_EXECUTION_TIME;
 
-            execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-40) + " check device status\n";
-            current_time += delays.at(current_device)-40;
+            execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-ISR_EXECUTION_TIME) + " check device status\n";
+            current_time += delays.at(current_device)-ISR_EXECUTION_TIME;
 
             current_device = NOT_DEVICE;
 
