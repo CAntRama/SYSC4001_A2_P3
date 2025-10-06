@@ -53,7 +53,6 @@ int main(int argc, char** argv) {
                 //   CPU, 39
                 //   END_IO, 14
                 //
-                // Added IRET to make it obvious the return to CPU
                 // This is the first CPU instruction --> Will be considered as a CPU Burst can be initialize_variable() or calculate(x) or delete (y,x)
                 execution += std::to_string(current_time) + ", " + std::to_string(duration_intr) + ", CPU Burst\n";
 
@@ -68,7 +67,8 @@ int main(int argc, char** argv) {
             //   SYSCALL, 14 <-- We are here
             //   CPU, 39
             //   END_IO, 14
-            //  
+            //
+            // Added IRET to make it obvious the return to CPU
             // Device delays --> Total from ISR, +40 every step, from example execution file from github 2 ISR :
             // transfer data from device to memory, check for errors
             current_device = duration_intr;
