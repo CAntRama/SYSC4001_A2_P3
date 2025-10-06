@@ -53,6 +53,7 @@ int main(int argc, char** argv) {
                 //   CPU, 39
                 //   END_IO, 14
                 //
+                // Added IRET to make it obvious the return to CPU
                 // This is the first CPU instruction --> Will be considered as a CPU Burst can be initialize_variable() or calculate(x) or delete (y,x)
                 execution += std::to_string(current_time) + ", " + std::to_string(duration_intr) + ", CPU Burst\n";
 
@@ -86,6 +87,9 @@ int main(int argc, char** argv) {
             execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-(2*ISR_EXECUTION_TIME)) + ", check for errors\n";
             current_time += delays.at(current_device)-(2*ISR_EXECUTION_TIME);
 
+            execution += std::to_string(current_time) + ", " + std::to_string(IRET_EXECUTION_TIME) + ", IRET \n";
+            current_time += IRET_EXECUTION_TIME;
+
             continue;
         }
         else if (activity == "END_IO")
@@ -95,12 +99,9 @@ int main(int argc, char** argv) {
             //   CPU, 39
             //   END_IO, 14 <-- We are here
             //
-            // Added IRET to make it obvious in the excution that an interrupt was received to stop device I/O
+            // Added IRET to make it obvious the return to CPU
             // Device delays --> Total from ISR, +40 every step, from example execution file from github 1 ISR : check device status
             current_device = duration_intr;
-
-            execution += std::to_string(current_time) + ", " + std::to_string(IRET_EXECUTION_TIME) + ", IRET \n";
-            current_time += IRET_EXECUTION_TIME;
 
             auto [boilerplate_execution, new_current_time] = intr_boilerplate(current_time, current_device, CONTEXT_SAVE_EXECUTION_TIME, vectors);
             execution += boilerplate_execution;
@@ -112,6 +113,9 @@ int main(int argc, char** argv) {
 
             execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-ISR_EXECUTION_TIME) + " check device status\n";
             current_time += delays.at(current_device)-ISR_EXECUTION_TIME;
+
+            execution += std::to_string(current_time) + ", " + std::to_string(IRET_EXECUTION_TIME) + ", IRET \n";
+            current_time += IRET_EXECUTION_TIME;
 
             current_device = NOT_DEVICE;
 
