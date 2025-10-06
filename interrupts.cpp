@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
             execution += std::to_string(current_time) + ", " + std::to_string(ISR_EXECUTION_TIME) + ", end of I/O " + std::to_string(current_device) + ": run the ISR (device driver)\n";
             current_time += ISR_EXECUTION_TIME;
 
-            execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-ISR_EXECUTION_TIME) + " check device status\n";
+            execution += std::to_string(current_time) + ", " + std::to_string(delays.at(current_device)-ISR_EXECUTION_TIME) + ", check device status\n";
             current_time += delays.at(current_device)-ISR_EXECUTION_TIME;
 
             execution += std::to_string(current_time) + ", " + std::to_string(IRET_EXECUTION_TIME) + ", IRET \n";
