@@ -1,0 +1,187 @@
+0, 1, switch to kernel mode
+1, 10, context saved
+11, 1, find vector 2 in memory position 0x0004
+12, 1, load address 0X0695 into the PC
+13, 10, cloning to PCB
+23, 0, scheduler called
+23, 1, IRET 
+24, 1, switch to kernel mode
+25, 10, context saved
+35, 1, find vector 3 in memory position 0x0006
+36, 1, load address 0X042B into the PC
+37, 20, Program is40Mb large
+57, 600, loading program into memory
+657, 3, marking partition as occupied
+660, 6, updating PCB
+666, 0, scheduler called
+666, 1, IRET
+667, 100, CPU Burst
+767, 1, switch to kernel mode
+768, 10, context saved
+778, 1, find vector 6 in memory position 0x000C
+779, 1, load address 0X0639 into the PC
+780, 40, SYSCALL: run the ISR (device driver)
+820, 40, transfer data from device to memory
+860, 185, check for errors
+1045, 1, IRET 
+1046, 80, CPU Burst
+1126, 1, switch to kernel mode
+1127, 10, context saved
+1137, 1, find vector 6 in memory position 0x000C
+1138, 1, load address 0X0639 into the PC
+1139, 40, end of I/O 6: run the ISR (device driver)
+1179, 225, check device status
+1404, 1, IRET 
+1405, 1, switch to kernel mode
+1406, 10, context saved
+1416, 1, find vector 2 in memory position 0x0004
+1417, 1, load address 0X0695 into the PC
+1418, 12, cloning to PCB
+1430, 0, scheduler called
+1430, 1, IRET 
+1431, 1, switch to kernel mode
+1432, 10, context saved
+1442, 1, find vector 3 in memory position 0x0006
+1443, 1, load address 0X042B into the PC
+1444, 15, Program is25Mb large
+1459, 375, loading program into memory
+1834, 3, marking partition as occupied
+1837, 6, updating PCB
+1843, 0, scheduler called
+1843, 1, IRET
+1844, 120, CPU Burst
+1964, 1, switch to kernel mode
+1965, 10, context saved
+1975, 1, find vector 4 in memory position 0x0008
+1976, 1, load address 0X0292 into the PC
+1977, 40, SYSCALL: run the ISR (device driver)
+2017, 40, transfer data from device to memory
+2057, 170, check for errors
+2227, 1, IRET 
+2228, 60, CPU Burst
+2288, 1, switch to kernel mode
+2289, 10, context saved
+2299, 1, find vector 4 in memory position 0x0008
+2300, 1, load address 0X0292 into the PC
+2301, 40, end of I/O 4: run the ISR (device driver)
+2341, 210, check device status
+2551, 1, IRET 
+2552, 1, switch to kernel mode
+2553, 10, context saved
+2563, 1, find vector 2 in memory position 0x0004
+2564, 1, load address 0X0695 into the PC
+2565, 8, cloning to PCB
+2573, 0, scheduler called
+2573, 1, IRET 
+2574, 1, switch to kernel mode
+2575, 10, context saved
+2585, 1, find vector 3 in memory position 0x0006
+2586, 1, load address 0X042B into the PC
+2587, 18, Program is15Mb large
+2605, 225, loading program into memory
+2830, 3, marking partition as occupied
+2833, 6, updating PCB
+2839, 0, scheduler called
+2839, 1, IRET
+2840, 90, CPU Burst
+2930, 1, switch to kernel mode
+2931, 10, context saved
+2941, 1, find vector 8 in memory position 0x0010
+2942, 1, load address 0X06EF into the PC
+2943, 40, SYSCALL: run the ISR (device driver)
+2983, 40, transfer data from device to memory
+3023, 920, check for errors
+3943, 1, IRET 
+3944, 70, CPU Burst
+4014, 1, switch to kernel mode
+4015, 10, context saved
+4025, 1, find vector 8 in memory position 0x0010
+4026, 1, load address 0X06EF into the PC
+4027, 40, end of I/O 8: run the ISR (device driver)
+4067, 960, check device status
+5027, 1, IRET 
+5028, 1, switch to kernel mode
+5029, 10, context saved
+5039, 1, find vector 2 in memory position 0x0004
+5040, 1, load address 0X0695 into the PC
+5041, 14, cloning to PCB
+5055, 0, scheduler called
+5055, 1, IRET 
+5056, 1, switch to kernel mode
+5057, 10, context saved
+5067, 1, find vector 3 in memory position 0x0006
+5068, 1, load address 0X042B into the PC
+5069, 22, Program is10Mb large
+5091, 150, loading program into memory
+5241, 3, marking partition as occupied
+5244, 6, updating PCB
+5250, 0, scheduler called
+5250, 1, IRET
+5251, 110, CPU Burst
+5361, 1, switch to kernel mode
+5362, 10, context saved
+5372, 1, find vector 12 in memory position 0x0018
+5373, 1, load address 0X03B9 into the PC
+5374, 40, SYSCALL: run the ISR (device driver)
+5414, 40, transfer data from device to memory
+5454, 65, check for errors
+5519, 1, IRET 
+5520, 60, CPU Burst
+5580, 1, switch to kernel mode
+5581, 10, context saved
+5591, 1, find vector 12 in memory position 0x0018
+5592, 1, load address 0X03B9 into the PC
+5593, 40, end of I/O 12: run the ISR (device driver)
+5633, 105, check device status
+5738, 1, IRET 
+5739, 1, switch to kernel mode
+5740, 10, context saved
+5750, 1, find vector 2 in memory position 0x0004
+5751, 1, load address 0X0695 into the PC
+5752, 16, cloning to PCB
+5768, 0, scheduler called
+5768, 1, IRET 
+5769, 1, switch to kernel mode
+5770, 10, context saved
+5780, 1, find vector 3 in memory position 0x0006
+5781, 1, load address 0X042B into the PC
+5782, 25, Program is8Mb large
+5807, 120, loading program into memory
+5927, 3, marking partition as occupied
+5930, 6, updating PCB
+5936, 0, scheduler called
+5936, 1, IRET
+5937, 80, CPU Burst
+6017, 1, switch to kernel mode
+6018, 10, context saved
+6028, 1, find vector 6 in memory position 0x000C
+6029, 1, load address 0X0639 into the PC
+6030, 40, SYSCALL: run the ISR (device driver)
+6070, 40, transfer data from device to memory
+6110, 185, check for errors
+6295, 1, IRET 
+6296, 50, CPU Burst
+6346, 1, switch to kernel mode
+6347, 10, context saved
+6357, 1, find vector 6 in memory position 0x000C
+6358, 1, load address 0X0639 into the PC
+6359, 40, end of I/O 6: run the ISR (device driver)
+6399, 225, check device status
+6624, 1, IRET 
+6625, 1, switch to kernel mode
+6626, 10, context saved
+6636, 1, find vector 2 in memory position 0x0004
+6637, 1, load address 0X0695 into the PC
+6638, 20, cloning to PCB
+6658, 0, scheduler called
+6658, 1, IRET 
+6659, 1, switch to kernel mode
+6660, 10, context saved
+6670, 1, find vector 3 in memory position 0x0006
+6671, 1, load address 0X042B into the PC
+6672, 30, Program is5Mb large
+6702, 75, loading program into memory
+6777, 3, marking partition as occupied
+6780, 6, updating PCB
+6786, 0, Error memory not allocated for program6
+6786, 100, CPU Burst

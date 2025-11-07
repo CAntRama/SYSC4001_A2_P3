@@ -1,0 +1,43 @@
+0, 1, switch to kernel mode
+1, 10, context saved
+11, 1, find vector 2 in memory position 0x0004
+12, 1, load address 0X0695 into the PC
+13, 12, cloning to PCB
+25, 0, scheduler called
+25, 1, IRET 
+26, 1, switch to kernel mode
+27, 10, context saved
+37, 1, find vector 3 in memory position 0x0006
+38, 1, load address 0X042B into the PC
+39, 35, Program is50Mb large
+74, 750, loading program into memory
+824, 3, marking partition as occupied
+827, 6, updating PCB
+833, 0, Error memory not allocated for program1
+833, 1, switch to kernel mode
+834, 10, context saved
+844, 1, find vector 3 in memory position 0x0006
+845, 1, load address 0X042B into the PC
+846, 25, Program is15Mb large
+871, 225, loading program into memory
+1096, 3, marking partition as occupied
+1099, 6, updating PCB
+1105, 0, scheduler called
+1105, 1, IRET
+1106, 60, CPU Burst
+1166, 1, switch to kernel mode
+1167, 10, context saved
+1177, 1, find vector 12 in memory position 0x0018
+1178, 1, load address 0X03B9 into the PC
+1179, 40, SYSCALL: run the ISR (device driver)
+1219, 40, transfer data from device to memory
+1259, 65, check for errors
+1324, 1, IRET 
+1325, 40, CPU Burst
+1365, 1, switch to kernel mode
+1366, 10, context saved
+1376, 1, find vector 12 in memory position 0x0018
+1377, 1, load address 0X03B9 into the PC
+1378, 40, end of I/O 12: run the ISR (device driver)
+1418, 105, check device status
+1523, 1, IRET 

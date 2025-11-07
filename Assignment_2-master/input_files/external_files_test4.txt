@@ -1,0 +1,2 @@
+program1, 50
+program2, 15

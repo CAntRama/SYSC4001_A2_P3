@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug interrupts",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment_2-master/bin/interrupts",
+            "args": [
+                "trace.txt",
+                "vector_table.txt",
+                "device_table.txt",
+                "external_files.txt"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/Assignment_2-master",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for lldb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build-project"
+        }
+    ]
+}
